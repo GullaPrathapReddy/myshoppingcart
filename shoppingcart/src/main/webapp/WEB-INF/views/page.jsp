@@ -6,7 +6,7 @@
 <spring:url var="js" value="/assets/js" />
 <spring:url var="images" value="/assets/images" />
 
-<c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,30 +42,32 @@
 </head>
 
 <body>
+	<div class="se-pre-con"></div>
+	<div class="wrapper">
+		<%@ include file="./shared/navber.jsp"%>
+		<!-- Page Content -->
+		<div class="content">
+			<c:if test="${userclickHome== true }">
+				<%@ include file="home.jsp"%>
+			</c:if>
 
-	<%@ include file="./shared/navber.jsp"%>
-	<!-- Page Content -->
-	<div class="content"> 
-	<c:if test="${userclickHome== true }">
-		<%@ include file="home.jsp"%>
-	</c:if>
+			<c:if test="${userclickAbout== true }">
+				<%@ include file="about.jsp"%>
+			</c:if>
 
-	<c:if test="${userclickAbout== true }">
-		<%@ include file="about.jsp"%>
-	</c:if>
+			<c:if test="${userclickContact==true }">
+				<%@ include file="contact.jsp"%>
+			</c:if>
+		</div>
+		<!-- /.container -->
 
-	<c:if test="${userclickContact==true }">
-		<%@ include file="contact.jsp"%>
-	</c:if>
+		<!-- Footer -->
+		<%@ include file="./shared/footer.jsp"%>
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/jquery.js"></script>
+		<script src="${js}/bootstrap.bundle.min.js"></script>
+		<%-- <script src="${js}/myapp.js"></script> --%>
 	</div>
-	<!-- /.container -->
-
-	<!-- Footer -->
-	<%@ include file="./shared/footer.jsp"%>
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.js"></script>
-	<script src="${js}/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

@@ -2,11 +2,9 @@
 
 	<div class="row">	
 		
-		<h1>Contact Us</h1>
+		<h1>About Us</h1>
 		<hr/>
-		<p>This is an Contact us page</p>	
+		<p>This is an About us page</p>	
 	
 	</div>
-
-
 </div>

@@ -1,0 +1,4 @@
+net\prathap\shoppingbackend\App.class
+net\prathap\shoppingbackend\dto\Catagory.class
+net\prathap\shoppingbackend\dao\CatagoryDAO.class
+net\prathap\shoppingbackend\daoimpl\CatagoryDAOImpl.class

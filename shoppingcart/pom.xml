@@ -10,12 +10,18 @@
 	<url>http://maven.apache.org</url>
 	<!-- store the versions here -->
 	<properties>
-	
+
 		<spring.version>4.3.20.RELEASE</spring.version>
 		<spring.security.version>4.2.5.RELEASE</spring.security.version>
 	</properties>
 
 	<dependencies>
+		<!-- configuring Backend -->
+		<dependency>
+			<groupId>net.prathap</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
