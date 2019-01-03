@@ -22,7 +22,6 @@ public class ProductTestcase {
 		dao=context.getBean("productDAO",ProductDAO.class);
 		
 	}
-	
 	@Test
 	public void test() {
 		/*//new Product
