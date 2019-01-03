@@ -3,49 +3,81 @@ package net.prathap.shoppingbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.prathap.shoppingbackend.dao.CatagoryDAO;
 import net.prathap.shoppingbackend.dto.Catagory;
 
 @Repository("catagoryDAO")
+/*@EnableTransactionManagement*/
 public class CatagoryDAOImpl implements CatagoryDAO {
-
-	private static List<Catagory> catagories=new ArrayList<Catagory>();
-	static {
-		
-			/*Catagory------1*/
-		Catagory cat1=new Catagory();
-		cat1.setCatagoryid(1);
-		cat1.setCatagoryname("Television");
-		cat1.setDescription("This is Television Catagories");
-		cat1.setUrl("Yes Not Be done");
-		cat1.setActive(true);
-		/*Catagory------2*/
-		Catagory cat2=new Catagory();
-		cat2.setCatagoryid(2);
-		cat2.setCatagoryname("Men Fashions");
-		cat2.setDescription("This is Men Fashion Catagories");
-		cat2.setUrl("Yes Not Be done");
-		cat2.setActive(true);
-		/*Catagory------3*/
+	@Autowired
+	private SessionFactory factory;
+	private Session ses;
+	private Transaction tx;
+	public CatagoryDAOImpl() {
+		System.out.println("DAOConstructor IS Executing");
+	}
 	
-		Catagory cat3=new Catagory();
-		cat3.setCatagoryid(3);
-		cat3.setCatagoryname("Laptop");
-		cat3.setDescription("This is Laptop Catagories");
-		cat3.setUrl("Yes Not Be done");
-		cat3.setActive(true);
-		catagories.add(cat1);
-		catagories.add(cat2);
-		catagories.add(cat3);
+	public List<Catagory> Sendcatagaries() {	
+		List<Catagory> list=null;
+		Query<Catagory> query=null;
+		ses=factory.openSession();
+		query=ses.createQuery("from Catagory");
+		list=query.getResultList();
+		return list;
 	}
 
-	
-	public List<Catagory> Sendcatagaries() {
+	public Catagory SendOne(int id) {
 		
-		
-		return catagories;
-	}
+		List<Catagory> list=null;
+		list=Sendcatagaries();
+		for (Catagory cat : list) {
+			if (cat.getCatagoryid() == id) {
+				System.out.println("DAO SEND ONE"+cat.getCatagoryid()+"----iD"+id+"--"+cat.isActive());
+				return cat;
+			}
+		}
+		return null;
 
+	}
+	@Transactional
+	public boolean saveCatagoryToDB(Catagory cat) {
+		boolean flag = false;
+		boolean result = false;
+		System.out.println(factory.getClass().getName()+"-------");
+		ses = factory.openSession();
+		if (cat != null) {
+			tx = ses.beginTransaction();
+			try {
+				ses.persist(cat);
+				flag = true;
+				return flag;
+			} catch (HibernateException he) {
+				he.printStackTrace();
+				return flag;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return flag;
+			} finally {
+				if (flag) {
+					tx.commit();
+					result = true;
+				} else {
+					tx.rollback();
+					result = false;
+				}
+			}
+
+		}
+		return result;
+	}
 }

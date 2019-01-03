@@ -1,5 +1,15 @@
 package net.prathap.shoppingbackend.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+@Entity
+@Table(name="CATAGORY")
 public class Catagory {
 
 	private int catagoryid;
@@ -7,7 +17,13 @@ public class Catagory {
 	private String description;
 	private String url;
 	private boolean active;
-
+	public Catagory() {
+			System.out.println("DTO Object Is Instantiating");
+	}
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
+	@Type(type="int")
 	public int getCatagoryid() {
 		return catagoryid;
 	}
@@ -16,6 +32,8 @@ public class Catagory {
 		this.catagoryid = catagoryid;
 	}
 
+	@Column(name="NAME",length=50)
+	@Type(type="string")
 	public String getCatagoryname() {
 		return catagoryname;
 	}
@@ -23,7 +41,8 @@ public class Catagory {
 	public void setCatagoryname(String catagoryname) {
 		this.catagoryname = catagoryname;
 	}
-
+	@Column(name="DESCRIPTION",length=250)
+	@Type(type="string")
 	public String getDescription() {
 		return description;
 	}
@@ -31,7 +50,8 @@ public class Catagory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	@Column(name="IMG_URL",length=50)
+	@Type(type="string")
 	public String getUrl() {
 		return url;
 	}
@@ -39,7 +59,8 @@ public class Catagory {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
+	@Column(name="IS_ACTIVE")
+	@Type(type="boolean")
 	public boolean isActive() {
 		return active;
 	}

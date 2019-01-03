@@ -7,14 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-             <li class="nav-item" id="listproduts"  >
-              <a class="nav-link" href="${contextRoot}/listproducts">view Product</a>
+             <li class="nav-item" id="listproducts">
+              <a class="nav-link" href="${contextRoot}/show/all/products">View Products</a>
             </li>
             <li class="nav-item" id="about">
               <a class="nav-link" href="${contextRoot}/about">About</a>
             </li>
-            <li class="nav-item" id="services">
-              <a class="nav-link" href="${contextRoot}/services">Services</a>
+            <li class="nav-item" id="service">
+              <a class="nav-link" href="${contextRoot}/service">Services</a>
             </li>
             <li class="nav-item" id="contact">
               <a class="nav-link" href="${contextRoot}/contact">Contact</a>

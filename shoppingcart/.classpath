@@ -26,6 +26,10 @@
 	<classpathentry kind="lib" path="E:/tomcat/Tomcat9.0/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="E:/tomcat/Tomcat9.0/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="E:/tomcat/Tomcat9.0/lib/el-api.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_144"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

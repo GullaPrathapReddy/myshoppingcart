@@ -10,7 +10,7 @@
 <body>
 	<div class="list-group">
 		<c:forEach items="${catagories}" var="catagory">
-			<a href="#" class="list-group-item">${catagory.catagoryname}</a>
+			<a href="${contextRoot}/show/catagory/${catagory.catagoryid}/products" id="a_${catagory.catagoryname}"class="list-group-item">${catagory.catagoryname}</a>
 		</c:forEach>
 		<!-- <a href="#" class="list-group-item">Category 1</a> <a href="#"
 			class="list-group-item">Category 2</a> <a href="#"
